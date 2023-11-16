@@ -46,6 +46,9 @@ DATA_DIR_V1 := CS435_Plant_Data_v1
 DATA_DIR_V2 := CS435_Plant_Data_v2
 
 
+prepare-dataset-from-scratch: dataset-v2 manifest-v2 augment-v2
+
+
 dataset-v2: SOURCE_DIR = $(HDFS_ROOT)/$(DATA_DIR_V0)/
 dataset-v2: DEST_DIR = $(HDFS_ROOT)/$(DATA_DIR_V2)/
 dataset-v2:
