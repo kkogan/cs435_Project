@@ -1,3 +1,11 @@
+# user-specific config used my Makefile
+config.env
+
+# ignore everything in the output directory
+output/*
+# except output/.gitkeep
+!output/.gitkeep
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
