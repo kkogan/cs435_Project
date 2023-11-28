@@ -30,6 +30,7 @@ def plot_label_distribution(df):
     labels = [row['label'] for row in label_counts]
     counts = [row['count'] for row in label_counts]
 
+    labels = [label.split('/')[-1] for label in labels]
     plt.figure(figsize=(10, 6))
     plt.bar(labels, counts, color='skyblue')
     plt.xlabel('Classes')
@@ -37,9 +38,9 @@ def plot_label_distribution(df):
     plt.title('Distribution of Images per Class')
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
-    plt.savefig('new_class_distributions.png')
+    plt.savefig('new_class_distributions.png', bbox_inches='tight')
 
-def plot_label_distribution(df):
+def plot_healthy_vs_diseased_distribution(df):
     # Get the unique clean labels
     unique_clean_labels = [row.label for row in df.select("label").distinct().collect()]
 
@@ -94,6 +95,8 @@ if __name__ == "__main__":
     train.show()
 
     plot_label_distribution(train)
+
+    # plot_healthy_vs_diseased_distribution(train)
 
     spark.stop()
     
